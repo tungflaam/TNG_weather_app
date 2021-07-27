@@ -1,8 +1,13 @@
 const inputCity = document.querySelector('form');
 const card = document.querySelector('.card');
 const info = document.querySelector('.info');
+const time = document.querySelector('.details img');
+const icon = document.querySelector('.icon img');
+
+
 
 const updatedInfo = (data) => {
+    console.log(data);
     const cityInfo = data.cityInfo;
     const weather = data.weather;
 
@@ -11,6 +16,17 @@ const updatedInfo = (data) => {
     <span class="text-uppercase text-center">${weather.WeatherText}</span>
     <span class="text-uppercase text-center">${weather.Temperature.Metric.Value} &deg; C</span>                    
     `;
+
+const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
+icon.setAttribute('src',iconSrc);
+
+let timeSrc = null;
+if(weather.IsDayTime){
+    timeSrc = 'img/day.svg';
+} else {
+    timeSrc = 'img/night.svg';
+}
+time.setAttribute('src',timeSrc);
 };
 
 const newCity = async (city) => {
