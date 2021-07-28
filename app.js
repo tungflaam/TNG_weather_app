@@ -13,9 +13,14 @@ const updatedInfo = (data) => {
 
     info.innerHTML = `
     <h4 class="text-uppercase text-center">${cityInfo.EnglishName}</h4>
+    <span class="text-uppercase text-center">${weather.LocalObservationDateTime}</span>
     <span class="text-uppercase text-center">${weather.WeatherText}</span>
     <span class="text-uppercase text-center">${weather.Temperature.Metric.Value} &deg; C</span>                    
     `;
+    
+if (card.classList.contains('d-none')){
+    card.classList.remove('d-none');
+}
 
 const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
 icon.setAttribute('src',iconSrc);
@@ -27,6 +32,7 @@ if(weather.IsDayTime){
     timeSrc = 'img/night.svg';
 }
 time.setAttribute('src',timeSrc);
+
 };
 
 const newCity = async (city) => {

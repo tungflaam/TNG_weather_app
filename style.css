@@ -8,3 +8,7 @@ body {
 .container {
     max-width: 400px;
 }
+
+.icon img {
+    margin-top: -50px;
+}
